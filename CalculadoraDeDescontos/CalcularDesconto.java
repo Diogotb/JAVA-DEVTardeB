@@ -36,7 +36,7 @@ public class CalcularDesconto {
         System.out.println("O preço do produto é de "
                 + precoProduto + " reais");
         double percentualDesconto = 10.0;
-percentualDesconto = 30;                
+        percentualDesconto = 30; // jçsdhçjkksdhalshda            
         System.out.println("O desconto será de "
                 + percentualDesconto + "%.");
         // Regra de três para descobrir qual o valor
