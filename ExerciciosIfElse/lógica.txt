@@ -1,0 +1,5 @@
+1.EX - 
+    - Ler um Número (user);
+    - Ler outro Número (user)
+    - se (numero1>numero2) então escreva "numero 1 é maior"
+    - senão então escreva "numero 2 é maior"
