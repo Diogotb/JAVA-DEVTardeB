@@ -135,8 +135,28 @@ public class ExerciciosFor {
     }
     public void exercico5Gb() {
         int numeros[] = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
-        int nPar[]=new int[numeros.length];
+        int nPar[]=new int[numeros.length];//vetor criado com o mesmo nº do principal
         int nImpar[]=new int[numeros.length];
+        // distribuir os os nº nos vetores correspondentes
+        for (int i = 0; i < numeros.length; i++) {
+            if(numeros[i]%2==0){
+                nPar[i]=numeros[i];
+            } else{
+                nImpar[i]=numeros[i];
+            }
+        }
+        // Imprimindo os vetores
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.println("vetor[" + i + "]=" + numeros[i]);
+        }
+        for (int i = 0; i < nPar.length; i++) {
+            System.out.println("vetorPar[" + i + "]=" + nPar[i]);
+        }
+        for (int i = 0; i < nImpar.length; i++) {
+            System.out.println("vetorImpar[" + i + "]=" + nImpar[i]);
+        }
+
+
     }
 
 }
