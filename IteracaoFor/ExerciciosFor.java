@@ -155,8 +155,27 @@ public class ExerciciosFor {
         for (int i = 0; i < nImpar.length; i++) {
             System.out.println("vetorImpar[" + i + "]=" + nImpar[i]);
         }
+    }
 
-
+    public void exercicio6() {
+        double mediasAlunos[]= new double[3];
+        double notasAlunos[]= new double[4];
+        int cont = 0;
+        for (int i = 0; i < mediasAlunos.length; i++) {
+            for (int j = 0; j < notasAlunos.length; j++) {
+                System.out.println("Informe a Nota "+(j+1)+" do Aluno "+(i+1)+":");
+                notasAlunos[j]=sc.nextDouble();
+                mediasAlunos[i]+=notasAlunos[j];
+            }
+            mediasAlunos[i]/=notasAlunos.length;
+            if (mediasAlunos[i]>=7){
+                cont++;
+            }
+        }
+        for (int i = 0; i < mediasAlunos.length; i++) {
+            System.out.println(" a média do Aluno "+(i+1)+" é :"+mediasAlunos[i]);
+        }
+        System.out.println("O nº de alunos com Nota >=7 é "+ cont);
     }
 
 }

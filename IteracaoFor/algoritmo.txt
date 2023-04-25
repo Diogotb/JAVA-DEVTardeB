@@ -1,0 +1,7 @@
+Exercicio 6 - 4 notas de 10 alunos, imprimir as médias, e contar o nº de médias >=7
+    1. criar um vetor das médios dos alunos 10 alunos
+    2. criar um vetor das 4 notas dos alunos
+    3. criar um contador
+    4. lanças as notas e calcular a média - "Importante" - laço dentro de outro laço
+    5. contar o nº de medias >= 7
+    6. Imprimir as médias e o nº do contador
