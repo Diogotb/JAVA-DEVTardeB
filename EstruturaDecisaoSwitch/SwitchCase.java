@@ -61,5 +61,6 @@ public class SwitchCase {
             default: tipoMes= "Nº não Encontrado";
                 break;
         }
+        System.out.println(tipoMes);
     }
 }

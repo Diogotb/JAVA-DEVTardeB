@@ -37,6 +37,7 @@ public class ExerciciosAlternativo {
             valorMacas = 0.25;
         }
         double valorCompra = nMacas*valorMacas;
+        System.out.println(valorCompra);
         
     }
     public void exercicio5() {
