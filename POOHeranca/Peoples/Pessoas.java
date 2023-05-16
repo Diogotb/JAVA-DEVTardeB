@@ -1,4 +1,4 @@
-package POOHeranca;
+package POOHeranca.Peoples;
 
 public class Pessoas {
     //superclasse (fornecer herança para as outras classes)
