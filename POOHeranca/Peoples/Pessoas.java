@@ -8,6 +8,7 @@ public abstract class Pessoas {
     String endereco;
     int idade;
     String cpf;
+    String rg;
 
     //métodos
     public String getNome() {
@@ -34,5 +35,9 @@ public abstract class Pessoas {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+    public String getRg() {
+        return rg;
+    }
+    public abstract void setRg();
 
 }

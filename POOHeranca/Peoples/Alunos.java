@@ -33,6 +33,13 @@ public class Alunos extends Pessoas{
     public void setTurma(String turma) {
         this.turma = turma;
     }
+    @Override
+    public void setRg() {
+        // TODO Auto-generated method stub
+        this.rg = "SP"+"numero";
+    }
+   
+    
 
     
 
