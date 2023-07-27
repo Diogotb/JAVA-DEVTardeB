@@ -8,9 +8,14 @@ public class AgendaConsulta {
     String cliente;
     String veterianario;
     //métodos
+    
     public String getAgendamento() {
         agendamento = data+horario;
         return agendamento;
+    }
+    public AgendaConsulta(String horario, String data) {
+        this.horario = horario;
+        this.data = data;
     }
     public String getHorario() {
         return horario;
