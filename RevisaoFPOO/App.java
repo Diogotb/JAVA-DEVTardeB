@@ -20,7 +20,7 @@ class App {
           AgendaConsulta agenda[] = new AgendaConsulta[100];
           // cadastro dos Animais
           // criar os contadores
-          int contGatos = 0, contCachorros = 0, contOutros = 0, contAgenda=0;
+          int contGatos = 0, contCachorros = 0, contOutros = 0, contAgenda = 0;
           boolean aberto = true;
           JOptionPane.showMessageDialog(null, "Seja Bem-Vindo ao Consultória \n do Dr. Franksthein ");
 
@@ -35,14 +35,14 @@ class App {
                          gatos[contGatos].setNome(JOptionPane.showInputDialog("Informe o nome do PET"));
                          gatos[contGatos]
                                    .setPeso(Double.parseDouble(JOptionPane.showInputDialog("Informe o peso do PET")));
-                                   contGatos++;
+                         contGatos++;
                     } else if (acao2 == 2) {// Cachorro
                          cachorros[contCachorros] = new Cachorro();
                          // preeencher os atributos
                          cachorros[contCachorros].setNome(JOptionPane.showInputDialog("Informe o nome do PET"));
                          cachorros[contCachorros]
                                    .setPeso(Double.parseDouble(JOptionPane.showInputDialog("Informe o peso do PET")));
-                         contCachorros++;//acrescenta o contador
+                         contCachorros++;// acrescenta o contador
                     } else if (acao2 == 3) {// Outros
                          outrosAnimais[contOutros] = new OutrosAnimais();
                          // preeencher os atributos
@@ -52,46 +52,63 @@ class App {
                          contOutros++;
                     }
                } else if (acao1 == 2) {// agendamento
-                    //1º encontrar o pet cadastrado
+                    // 1º encontrar o pet cadastrado
                     String nomeAgenda = JOptionPane.showInputDialog("Informe o Nome do PET");
-                    //comparar nos vetores(gatos/cachorros/outrosanimais)
-                    boolean nomeOk=false;
+                    // comparar nos vetores(gatos/cachorros/outrosanimais)
+                    boolean nomeOk = false;
                     for (int i = 0; i < contGatos; i++) {
-                         if(nomeAgenda.equals(gatos[i].getNome())){
+                         if (nomeAgenda.equals(gatos[i].getNome())) {
                               JOptionPane.showMessageDialog(null, "Nome Encontrado");
                               nomeOk = true;
                               break;
                          }
                     }
                     for (int i = 0; i < contCachorros; i++) {
-                         if(nomeAgenda.equals(cachorros[i].getNome())){
+                         if (nomeAgenda.equals(cachorros[i].getNome())) {
                               JOptionPane.showMessageDialog(null, "Nome Encontrado");
                               nomeOk = true;
                               break;
                          }
                     }
                     for (int i = 0; i < contOutros; i++) {
-                         if(nomeAgenda.equals(outrosAnimais[i].getNome())){
+                         if (nomeAgenda.equals(outrosAnimais[i].getNome())) {
                               JOptionPane.showMessageDialog(null, "Nome Encontrado");
                               nomeOk = true;
                               break;
                          }
                     }
-                    //2º verificar se horarios esta disponivel
-                    if(nomeOk){
-                         //laço de repetição para agendamento
+                    // 2º verificar se horarios esta disponivel
+                    if (nomeOk) {
+                         // laço de repetição para agendamento
                          boolean registrarAgendamento = true;
                          while (registrarAgendamento) {
-                              //pedir data e hora
-                              String dataAgenda = JOptionPane.showInputDialog("Informe a Data do Agendamento\n [dd/mm/yyyy]");
-                              String horaAgenda = JOptionPane.showInputDialog("Informe a Hora do Agendamento\n [hh:mm]");
+                              // pedir data e hora
+                              String dataAgenda = JOptionPane
+                                        .showInputDialog("Informe a Data do Agendamento\n [dd/mm/yyyy]");
+                              String horaAgenda = JOptionPane
+                                        .showInputDialog("Informe a Hora do Agendamento\n [hh:mm]");
+                              if (contAgenda != 0) {
+                                   for (int i = 0; i < contAgenda; i++) {
+                                        if (agenda[i].getAgendamento().equals(dataAgenda + horaAgenda)) {
+                                             // já existe um horário agendado
+                                             JOptionPane.showMessageDialog(null, "Horario já agendado");
+                                             break;
+                                        } else {
+                                             // 3º realizar agendamento
+                                             agenda[contAgenda] = new AgendaConsulta(horaAgenda, dataAgenda);
+                                             contAgenda++;
+                                             registrarAgendamento = false;
+                                        }
+                                   }
+
+                              } else {
+                                   // 3º realizar agendamentoF
+                                   agenda[contAgenda] = new AgendaConsulta(horaAgenda, dataAgenda);
+                                   contAgenda++;
+                                   registrarAgendamento = false;
+                              }
                          }
-
                     }
-                    //
-                    //3º realizar agendamento
-
-
                }
           }
      }
