@@ -19,15 +19,17 @@ public class ExemploThrow {
             
             if (senha.length() != 6) {
                 throw new Exception("Senha deve ter 6 Digitos");
-            }else if(senha.equals(login)){
-                throw new Exception("Senha igual Login");
-            }else if(senha.equals(dataNascimento)){
-                throw new Exception("Senha igual Data de Nascimento");
+            }
+            if(senha.equals(login)){
+                throw new Exception("Senha = login");
+            }
+            if(!senha.matches(".*[a-z].*") || !senha.matches(".*[A-Z].*") ){
+                throw new Exception("falta Letra Lower and Upper");
             }
             
         } catch (Exception e) {
             // TODO: handle exception
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage(),"senha",0);
         }
     }
 }
