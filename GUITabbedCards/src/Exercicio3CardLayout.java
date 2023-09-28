@@ -2,75 +2,73 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
+import java.awt.*;
 
-public class Exercicio3CardLayout extends JFrame {
+/**
+ * Exercicio3CardLayout
+ */
+public class Exercicio3CardLayout extends JFrame{
     public Exercicio3CardLayout() {
-        super("Exercicio 3");
-        //Painel Principal
-        JPanel mainPanel = new JPanel(new BorderLayout());
-        //Painel para adicionar os Cards
-        JPanel cardsPanel = new JPanel();
-        //setlayout do cardsPanel como CardLayout
+        super();
+        //criar um painel principal -> cardLayout
+        JPanel cardJPanel = new JPanel();
         CardLayout cl = new CardLayout();
-        cardsPanel.setLayout(cl);
-        //criar os Cards
-        JPanel home = new JPanel();//nome e 2 botoes
-        JPanel login = new JPanel();
-        JPanel cadastro = new JPanel();
-        //add ao cardsPanel
-        cardsPanel.add(home,"Home");//objeto e nome
-        cardsPanel.add(login,"Login");
-        cardsPanel.add(cadastro,"Cadastro");
-        //diferenciando os paineis
-        //home
-        JButton hButtonLogin = new JButton("Login");
-        JButton hButtonCad = new JButton("Cadastro");
-        home.add(new JLabel("Página Inicial"));
-        home.add(hButtonLogin);
-        home.add(hButtonCad);
-        //login
-        JButton lButtonHome = new JButton("Home");
-        JButton lButtonCad = new JButton("Cadastro");
-        login.add(new JLabel("Página Login"));
-        login.add(lButtonHome);
-        login.add(lButtonCad);
-        //cadastro
-        JButton cButtonHome = new JButton("Home");
-        JButton cButtonLogin = new JButton("Login");
-        cadastro.add(new JLabel("Página Cadastro"));
-        cadastro.add(cButtonHome);
-        cadastro.add(cButtonLogin);
-        //set finais
-        mainPanel.add(cardsPanel,BorderLayout.CENTER);
-        this.add(mainPanel);
+        cardJPanel.setLayout(cl);
+        this.add(cardJPanel);//add ao frame
+        //criar os cards
+        // card1
+        JPanel card1 = new JPanel();
+        card1.add(new JLabel("Home"));
+        //add 2 botões ao card
+        JButton hButLogin = new JButton("Login");
+        JButton hButCadastro = new JButton("Cadastro");
+        card1.add(hButLogin);
+        card1.add(hButCadastro);
+        cardJPanel.add(card1,"Home");
+        // card2
+        JPanel card2 = new JPanel();
+        card2.add(new JLabel("Login"));
+        //add 2 botões ao card
+        JButton lButHome = new JButton("Home");
+        JButton lButCadastro = new JButton("Cadastro");
+        card2.add(lButHome);
+        card2.add(lButCadastro);
+        cardJPanel.add(card2,"Login");
+        // card3
+        JPanel card3 = new JPanel();
+        card3.add(new JLabel("Cadastro"));
+        //add 3 botões ao card
+        JButton cButHome = new JButton("Home");
+        JButton cButLogin= new JButton("Login");
+        card3.add(cButHome);
+        card3.add(cButLogin);
+        cardJPanel.add(card3,"Cadastro");
+        //set do frame
+        this.setDefaultCloseOperation(2);
         this.setBounds(100, 100, 300, 300);
-        this.setDefaultCloseOperation(2);//2 fecha a janela e o programa
         this.setVisible(true);
-        //criar as Ações 
-        hButtonLogin.addActionListener(e->{
-            cl.show(cardsPanel,"Login");
+        //tratamento de eventos para os botões
+        hButLogin.addActionListener(e->{
+            cl.show(cardJPanel,hButLogin.getText());
         });
-        hButtonCad.addActionListener(e->{
-            cl.show(cardsPanel,"Cadastro");
+        hButCadastro.addActionListener(e->{
+            cl.show(cardJPanel,hButCadastro.getText());
         });
-        lButtonHome.addActionListener(e->{
-            cl.show(cardsPanel,lButtonHome.getText());
+        lButHome.addActionListener(e->{
+            cl.show(cardJPanel,lButHome.getText());
         });
-        lButtonCad.addActionListener(e->{
-            cl.show(cardsPanel,lButtonCad.getText());
+        lButCadastro.addActionListener(e->{
+            cl.show(cardJPanel,lButCadastro.getText());
         });
-        cButtonHome.addActionListener(e->{
-            cl.show(cardsPanel,cButtonHome.getText());
+        cButHome.addActionListener(e->{
+            cl.show(cardJPanel,cButHome.getText());
         });
-        cButtonLogin.addActionListener(e->{
-            cl.show(cardsPanel,cButtonLogin.getText());
+        cButLogin.addActionListener(e->{
+            cl.show(cardJPanel,cButLogin.getText());
         });
-
-
-
 
 
     }
+    
+    
 }
