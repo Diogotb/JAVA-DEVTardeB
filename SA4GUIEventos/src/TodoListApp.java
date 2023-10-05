@@ -5,9 +5,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TodoListApp {
+public class TodoListApp extends JFrame {
     //atributos 
-    private JFrame frame;
     private JPanel mainPanel;
     private JTextField taskInputField;
     private JButton addButton;
@@ -23,9 +22,9 @@ public class TodoListApp {
     //construtor
     public TodoListApp() {
         // Configuração da janela principal
-        frame = new JFrame("To-Do List App");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
+        super("To-Do List App");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(400, 300);
 
         // Inicializa o painel principal
         mainPanel = new JPanel();
@@ -62,7 +61,7 @@ public class TodoListApp {
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
         // Adiciona o painel principal à janela
-        frame.add(mainPanel);
+        this.add(mainPanel);
 
         // Configuração de ActionListener para os botões
         addButton.addActionListener(new ActionListener() {
@@ -159,7 +158,7 @@ public class TodoListApp {
 
     public void run() {
         // Exibe a janela
-        frame.setVisible(true);
+        this.setVisible(true);
     }
 
     
