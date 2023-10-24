@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TodoListApp extends JFrame {
-    //atributos 
+    // atributos
     private JPanel mainPanel;
     private JTextField taskInputField;
     private JButton addButton;
@@ -18,8 +18,8 @@ public class TodoListApp extends JFrame {
     private JButton clearCompletedButton;
 
     private List<Task> tasks;
-    
-    //construtor
+
+    // construtor
     public TodoListApp() {
         // Configuração da janela principal
         super("To-Do List App");
@@ -40,7 +40,7 @@ public class TodoListApp extends JFrame {
         addButton = new JButton("Adicionar");
         deleteButton = new JButton("Excluir");
         markDoneButton = new JButton("Concluir");
-        filterComboBox = new JComboBox<>(new String[]{"Todas", "Ativas", "Concluídas"});
+        filterComboBox = new JComboBox<>(new String[] { "Todas", "Ativas", "Concluídas" });
         clearCompletedButton = new JButton("Limpar Concluídas");
 
         // Configuração do painel de entrada
@@ -97,13 +97,13 @@ public class TodoListApp extends JFrame {
 
     private void addTask() {
         // Adiciona uma nova task à lista de tasks
-        String taskDescription = taskInputField.getText().trim();//remove espaços vazios
+        String taskDescription = taskInputField.getText().trim();// remove espaços vazios
         if (!taskDescription.isEmpty()) {
             Task newTask = new Task(taskDescription);
             tasks.add(newTask);
             updateTaskList();
             taskInputField.setText("");
-        }
+        } else{}
     }
 
     private void deleteTask() {
@@ -127,13 +127,7 @@ public class TodoListApp extends JFrame {
 
     private void filterTasks() {
         // Filtra as tasks com base na seleção do JComboBox
-        String filter = (String) filterComboBox.getSelectedItem();
-        listModel.clear();
-        for (Task task : tasks) {
-            if (filter.equals("Todas") || (filter.equals("Ativas") && !task.isDone()) || (filter.equals("Concluídas") && task.isDone())) {
-                listModel.addElement(task.getDescription());
-            }
-        }
+        updateTaskList();
     }
 
     private void clearCompletedTasks() {
@@ -150,9 +144,13 @@ public class TodoListApp extends JFrame {
 
     private void updateTaskList() {
         // Atualiza a lista de tasks exibida na GUI
+        String filter = (String) filterComboBox.getSelectedItem();
         listModel.clear();
         for (Task task : tasks) {
-            listModel.addElement(task.getDescription() + (task.isDone() ? " (Concluída)" : ""));
+            if (filter.equals("Todas") || (filter.equals("Ativas") && !task.isDone())
+                    || (filter.equals("Concluídas") && task.isDone())) {
+                listModel.addElement(task.getDescription()+ (task.isDone() ? " (Concluída)" : ""));;
+            }
         }
     }
 
@@ -161,6 +159,5 @@ public class TodoListApp extends JFrame {
         this.setVisible(true);
     }
 
-    
-}
 
+}
