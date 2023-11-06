@@ -1,6 +1,8 @@
 package View;
 
 import java.util.ArrayList;
+import java.util.List;
+
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -11,7 +13,11 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import Controller.CarrosDAO;
+
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import Model.Carros;
 
@@ -19,8 +25,10 @@ public class CarrosPainel extends JPanel {
     // Atributos(componentes)
     private JButton cadastrar, apagar, editar;
     private JTextField carMarcaField, carModeloField, carAnoField, carPlacaField, carValorField;
-    ArrayList<Carros> listaCarros = new ArrayList<Carros>();
-    public JTable jTable;
+    private List<Carros> carros;
+    private JTable table;
+    private DefaultTableModel tableModel;
+    private int linhaSelecionada = -1;
 
     // Construtor(GUI-JPanel)
     public CarrosPainel() {
@@ -55,13 +63,46 @@ public class CarrosPainel extends JPanel {
         // tabela de carros
         JScrollPane jSPane = new JScrollPane();
         add(jSPane);
-        jTable = new JTable();
-        jTable.setModel(new DefaultTableModel(new Object[][] {},
-                new String[] { "Marca", "Modelo", "Ano", "Placa", "Valor" }));
-        jSPane.setViewportView(jTable);
+        tableModel = new DefaultTableModel(new Object[][] {},
+                new String[] { "Marca", "Modelo", "Ano", "Placa", "Valor" });
+        table = new JTable(tableModel);
+        jSPane.setViewportView(table);
+
+        new CarrosDAO().criaTabela();
+
+        atualizarTabela();
 
         // botoes de eventos
+        // tratamento de Eventos
+        // tratamento de Eventos
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                linhaSelecionada = table.rowAtPoint(evt.getPoint());
+                if (linhaSelecionada != -1) {
+                    carMarcaField.setText((String) table.getValueAt(linhaSelecionada, 0));
+                    carModeloField.setText((String) table.getValueAt(linhaSelecionada, 1));
+                    carAnoField.setText(table.getValueAt(linhaSelecionada, 2).toString());
+                    carPlacaField.setText((String) table.getValueAt(linhaSelecionada, 0));
+                    carValorField.setText(table.getValueAt(linhaSelecionada, 2).toString());
 
+                }
+            }
+        });
+    }
+
+    private void atualizarTabela() {
+        tableModel.setRowCount(0);
+        carros = new CarrosDAO().read();
+        Object linha[] = new Object[5];
+        for(int i=0;i<carros.size();i++){
+        linha[0] = carros.get(i).marca;
+        linha[1] = carros.get(i).modelo;
+        linha[2] = carros.get(i).ano;
+        linha[3] = carros.get(i).placa;
+        linha[4] = carros.get(i).valor;
+        tableModel.addRow(linha);
+        }
     }
 
     

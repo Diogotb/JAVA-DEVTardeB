@@ -2,17 +2,17 @@ package Model;
 
 public class Carros {
     //Atributos
-    private String marca;
-    private String modelo;
-    private int ano;
-    private String cor;
-    private String placa;
+    public String marca;
+    public String modelo;
+    public String ano;
+    public String placa;
+    public String valor;
     //Métodos
-    public Carros(String marca, String modelo, int ano, String cor, String placa) {
+    public Carros(String marca, String modelo, String ano, String placa, String valor) {
         this.marca = marca;
         this.modelo = modelo;
         this.ano = ano;
-        this.cor = cor;
+        this.valor = valor;
         this.placa = placa;
     }
     //getters and setters
@@ -28,17 +28,17 @@ public class Carros {
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
-    public int getAno() {
+    public String getAno() {
         return ano;
     }
-    public void setAno(int ano) {
-        this.ano = ano;
+    public void setAno(String string) {
+        this.ano = string;
     }
-    public String getCor() {
-        return cor;
+    public String getValor() {
+        return valor;
     }
-    public void setCor(String cor) {
-        this.cor = cor;
+    public void setValor(String string) {
+        this.valor = string;
     }
     public String getPlaca() {
         return placa;
