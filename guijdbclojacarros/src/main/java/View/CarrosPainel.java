@@ -13,7 +13,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import Controller.CarrosDAO;
+// import Controller.CarrosDAO;
 
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
@@ -68,7 +68,7 @@ public class CarrosPainel extends JPanel {
         table = new JTable(tableModel);
         jSPane.setViewportView(table);
 
-        new CarrosDAO().criaTabela();
+        // new CarrosDAO().criaTabela();
 
         atualizarTabela();
 
@@ -93,7 +93,7 @@ public class CarrosPainel extends JPanel {
 
     private void atualizarTabela() {
         tableModel.setRowCount(0);
-        carros = new CarrosDAO().read();
+        // carros = new CarrosDAO().read();
         Object linha[] = new Object[5];
         for(int i=0;i<carros.size();i++){
         linha[0] = carros.get(i).marca;

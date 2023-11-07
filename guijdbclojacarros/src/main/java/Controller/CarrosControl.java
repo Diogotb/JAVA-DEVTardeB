@@ -22,7 +22,7 @@ public class CarrosControl {
 
     // métodos do CRUD
     public void cadastrarCarros(String marca, String modelo, String ano, String placa, String valor) {
-        new CarrosDAO().inserir(marca, modelo, ano, placa, valor);
+        // new CarrosDAO().inserir(marca, modelo, ano, placa, valor);
         Carros carro = new Carros(marca, modelo, ano, placa, valor);
         carros.add(carro);
         atualizarTabela();
@@ -46,7 +46,7 @@ public class CarrosControl {
 
     private void atualizarTabela() {
         tableModel.setRowCount(0);
-        carros = new CarrosDAO().read();
+        // carros = new CarrosDAO().read();
         Object linha[] = new Object[5];
         for(int i=0;i<carros.size();i++){
         linha[0] = carros.get(i).marca;
