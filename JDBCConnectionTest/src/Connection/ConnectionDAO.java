@@ -30,7 +30,7 @@ public class ConnectionDAO {
     }
 
     public void apagarTabela() {
-        String sql = "DROP TABLE MINHA_TABELA";
+        String sql = "DROP TABLE Minha_Tabela";
         try (Statement stmt = connection.createStatement()) {
             stmt.executeUpdate(sql);
             System.out.println("Tabela apagada com sucesso.");
@@ -48,7 +48,6 @@ public class ConnectionDAO {
             stmt.setString(2, email);
             stmt.executeUpdate();
             System.out.println("Dados inseridos com sucesso");
-            ConnectionFactory.closeConnection(stmt);
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao inserir dados no banco de dados.", e);
         } finally {

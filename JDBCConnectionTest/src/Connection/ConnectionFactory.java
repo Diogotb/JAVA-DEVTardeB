@@ -30,15 +30,7 @@ public class ConnectionFactory {
             ex.printStackTrace();
         }
     }
-    public static void closeConnection(PreparedStatement stmt) {
-        try {
-            if (stmt != null && stmt != null) {
-                stmt.close();
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
+
      public static void closeConnection(Connection connection, PreparedStatement stmt) {
         try {
             if (connection != null && stmt != null) {
