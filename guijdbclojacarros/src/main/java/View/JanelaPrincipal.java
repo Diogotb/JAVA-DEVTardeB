@@ -19,6 +19,7 @@ public class JanelaPrincipal extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
+    //métodos para tornar a janela visível
     public void run(){
         this.setVisible(true);
      }

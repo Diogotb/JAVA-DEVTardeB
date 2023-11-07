@@ -69,7 +69,7 @@ public class CarrosDAO {
             stmt.setString(2, modelo);
             stmt.setString(3, ano);
             stmt.setString(4, placa);
-            stmt.setString(3, valor);
+            stmt.setString(5, valor);
             stmt.executeUpdate();
             System.out.println("Dados inseridos com sucesso");
         } catch (SQLException e) {

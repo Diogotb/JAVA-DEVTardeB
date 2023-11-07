@@ -13,13 +13,17 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import Controller.CarrosControl;
 import Controller.CarrosDAO;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
 
 import Model.Carros;
+
 
 public class CarrosPainel extends JPanel {
     // Atributos(componentes)
@@ -69,14 +73,38 @@ public class CarrosPainel extends JPanel {
         table = new JTable(tableModel);
         jSPane.setViewportView(table);
 
+        // incluindo elementos do banco na criação do painel
         atualizarTabela();
 
-       
+        // tratamento de Eventos
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                linhaSelecionada = table.rowAtPoint(evt.getPoint());
+                if (linhaSelecionada != -1) {
+                    carMarcaField.setText((String) table.getValueAt(linhaSelecionada, 0));
+                    carModeloField.setText((String) table.getValueAt(linhaSelecionada, 1));
+                    carAnoField.setText((String) table.getValueAt(linhaSelecionada, 2));
+                    carPlacaField.setText((String) table.getValueAt(linhaSelecionada, 3));
+                    carValorField.setText((String) table.getValueAt(linhaSelecionada, 4));
+                }
+            }
+        });
 
-        // botoes de eventos
-        // tratamento de Eventos
-        // tratamento de Eventos
-       
+        //objeto para execução das operações da classe CarrosControl
+        CarrosControl operacoes = new CarrosControl(carros, tableModel, table);
+
+        cadastrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                operacoes.cadastrar(carMarcaField.getText(), carModeloField.getText(), carAnoField.getText(), carPlacaField.getText(), carValorField.getText());
+                carMarcaField.setText("");
+                carModeloField.setText("");
+                carAnoField.setText("");
+                carPlacaField.setText("");
+                carValorField.setText("");
+            }
+        });
     }
 
     //atualizar Tabela de Carros com o Banco de Dados
