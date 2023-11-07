@@ -2,11 +2,11 @@ package Model;
 
 public class Carros {
     //Atributos
-    public String marca;
-    public String modelo;
-    public String ano;
-    public String placa;
-    public String valor;
+    private String marca;
+    private String modelo;
+    private String ano;
+    private String placa;
+    private String valor;
     //Métodos
     public Carros(String marca, String modelo, String ano, String placa, String valor) {
         this.marca = marca;

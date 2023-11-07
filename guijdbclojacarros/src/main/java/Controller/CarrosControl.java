@@ -7,56 +7,40 @@ import javax.swing.table.DefaultTableModel;
 
 import Model.Carros;
 
+/**
+ * CarrosControl
+ */
 public class CarrosControl {
+
     // atributos
     private List<Carros> carros;
     private DefaultTableModel tableModel;
     private JTable table;
 
-    // cosntrutor
-    public CarrosControl(List<Model.Carros> carros, DefaultTableModel tableModel, JTable table) {
+    // construtor
+    public CarrosControl(List<Carros> carros, DefaultTableModel tableModel, JTable table) {
         this.carros = carros;
         this.tableModel = tableModel;
         this.table = table;
     }
 
     // métodos do CRUD
-    public void cadastrarCarros(String marca, String modelo, String ano, String placa, String valor) {
-        // new CarrosDAO().inserir(marca, modelo, ano, placa, valor);
+    private void atualizarTabela() {
+        // atualizar tabela pelo banco de dados
+        tableModel.setRowCount(0);
+        carros = new CarrosDAO().listarTodos();
+        for (Carros carro : carros) {
+            tableModel.addRow(new Object[] { carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPlaca(),
+                    carro.getValor() });
+        }
+
+    }
+
+    public void cadastrarCarro(String marca, String modelo, String ano, String placa, String valor) {
         Carros carro = new Carros(marca, modelo, ano, placa, valor);
         carros.add(carro);
+        new CarrosDAO().cadastrar(marca, modelo, ano, placa, valor);
         atualizarTabela();
     }
-
-    public void atualizarCarros(int linhaSelecionada, String marca, String modelo, String ano, String placa,
-            String valor) {
-        if (linhaSelecionada != -1) {
-            Carros carro = new Carros(marca, modelo, ano, placa, valor);
-            carros.add(carro);
-            atualizarTabela();
-        }
-    }
-
-    public void apagarCarro(int linhaSelecionada) {
-        if (linhaSelecionada != -1) {
-            carros.remove(linhaSelecionada);
-            atualizarTabela();
-        }
-    }
-
-    private void atualizarTabela() {
-        tableModel.setRowCount(0);
-        // carros = new CarrosDAO().read();
-        Object linha[] = new Object[5];
-        for(int i=0;i<carros.size();i++){
-        linha[0] = carros.get(i).marca;
-        linha[1] = carros.get(i).modelo;
-        linha[2] = carros.get(i).ano;
-        linha[3] = carros.get(i).placa;
-        linha[4] = carros.get(i).valor;
-        tableModel.addRow(linha);
-        }
-    }
-    
 
 }

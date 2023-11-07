@@ -13,7 +13,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-// import Controller.CarrosDAO;
+import Controller.CarrosDAO;
 
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
@@ -33,6 +33,7 @@ public class CarrosPainel extends JPanel {
     // Construtor(GUI-JPanel)
     public CarrosPainel() {
         super();
+        new CarrosDAO().criaTabela();
             // entrada de dados
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         add(new JLabel("Cadastro Carros"));
@@ -68,42 +69,28 @@ public class CarrosPainel extends JPanel {
         table = new JTable(tableModel);
         jSPane.setViewportView(table);
 
-        // new CarrosDAO().criaTabela();
-
         atualizarTabela();
+
+       
 
         // botoes de eventos
         // tratamento de Eventos
         // tratamento de Eventos
-        table.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent evt) {
-                linhaSelecionada = table.rowAtPoint(evt.getPoint());
-                if (linhaSelecionada != -1) {
-                    carMarcaField.setText((String) table.getValueAt(linhaSelecionada, 0));
-                    carModeloField.setText((String) table.getValueAt(linhaSelecionada, 1));
-                    carAnoField.setText(table.getValueAt(linhaSelecionada, 2).toString());
-                    carPlacaField.setText((String) table.getValueAt(linhaSelecionada, 0));
-                    carValorField.setText(table.getValueAt(linhaSelecionada, 2).toString());
-
-                }
-            }
-        });
+       
     }
 
+    //atualizar Tabela de Carros com o Banco de Dados
     private void atualizarTabela() {
+        // atualizar tabela pelo banco de dados
         tableModel.setRowCount(0);
-        // carros = new CarrosDAO().read();
-        Object linha[] = new Object[5];
-        for(int i=0;i<carros.size();i++){
-        linha[0] = carros.get(i).marca;
-        linha[1] = carros.get(i).modelo;
-        linha[2] = carros.get(i).ano;
-        linha[3] = carros.get(i).placa;
-        linha[4] = carros.get(i).valor;
-        tableModel.addRow(linha);
+        carros = new CarrosDAO().listarTodos();
+        for (Carros carro : carros) {
+            tableModel.addRow(new Object[] { carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPlaca(),
+                    carro.getValor() });
         }
+
     }
+
 
     
    
