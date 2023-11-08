@@ -10,6 +10,7 @@ import java.util.List;
 
 import Connection.ConnectionFactory;
 import Model.Carros;
+import logs.RegistroOperacoes;
 
 /**
  * CarrosDAO
@@ -50,7 +51,7 @@ public class CarrosDAO {
             // Prepara a consulta SQL para selecionar todos os registros da tabela
             rs = stmt.executeQuery(); 
             // Executa a consulta e armazena os resultados no ResultSet
-    
+            
             while (rs.next()) {
                 // Para cada registro no ResultSet, cria um objeto Carros com os valores do registro
                 Carros carro = new Carros(
@@ -84,6 +85,8 @@ public class CarrosDAO {
             stmt.setString(5, valor);
             stmt.executeUpdate();
             System.out.println("Dados inseridos com sucesso");
+            new RegistroOperacoes().registrarOperacao("Carro da placa : "+placa+" Cadastrado com Sucesso.");
+
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao inserir dados no banco de dados.", e);
         } finally {
@@ -104,8 +107,8 @@ public class CarrosDAO {
             //placa é chave primaria não pode ser alterada.
             stmt.setString(5, placa);
             stmt.executeUpdate();
-            
             System.out.println("Dados atualizados com sucesso");
+            new RegistroOperacoes().registrarOperacao("Carro da placa : "+placa+" Atualizado com Sucesso.");
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao atualizar dados no banco de dados.", e);
         } finally {
@@ -123,6 +126,7 @@ public class CarrosDAO {
             stmt.setString(1, placa);
             stmt.executeUpdate(); // Executa a instrução SQL
             System.out.println("Dado apagado com sucesso");
+            new RegistroOperacoes().registrarOperacao("Carro da placa : "+placa+" Apagado do Banco com Sucesso.");
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao apagar dados no banco de dados.", e);
         } finally {

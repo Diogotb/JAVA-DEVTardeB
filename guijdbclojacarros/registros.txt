@@ -1,0 +1,42 @@
+Carro da placa : DSA-1234 Cadastrado com Sucesso.
+Carro da placa : FDS-0987 Cadastrado com Sucesso.
+Carro da placa :  Apagado do Banco com Sucesso.
+Carro da placa : FDS-0987 Apagado do Banco com Sucesso.
+Carro da placa : DSA-1234 Apagado do Banco com Sucesso.
+Carro da placa : BUD-9876 Atualizado com Sucesso.
+Carro da placa : BUD-9876 Atualizado com Sucesso.
+Carro da placa : ABC-5432 Cadastrado com Sucesso.
+Carro da placa : ABC-1234 Atualizado com Sucesso.
+Carro da placa : DFG-0987 Atualizado com Sucesso.
+Carro da placa : DFG-0987 Atualizado com Sucesso.
+Carro da placa : DFG-0987 Atualizado com Sucesso.
+Carro da placa : DFG-0987 Atualizado com Sucesso.
+Carro da placa : DFG-0987 Atualizado com Sucesso.
+Carro da placa : DFG-0987 Atualizado com Sucesso.
+Carro da placa : DFG-0987 Atualizado com Sucesso.
+Carro da placa : DFG-0987 Apagado do Banco com Sucesso.
+Carro da placa : ABC-1234 Atualizado com Sucesso.
+Carro da placa : ABC-5432 Apagado do Banco com Sucesso.
+Carro da placa : ABC-1234 Atualizado com Sucesso.
+Carro da placa : ABC-1235 Cadastrado com Sucesso.
+Carro da placa : ABC-1235 Atualizado com Sucesso.
+Carro da placa :  Cadastrado com Sucesso.
+Carro da placa :  Atualizado com Sucesso.
+Carro da placa : ABC-1235 Apagado do Banco com Sucesso.
+Carro da placa :  Atualizado com Sucesso.
+Carro da placa :  Atualizado com Sucesso.
+Carro da placa :  Atualizado com Sucesso.
+Carro da placa :  Atualizado com Sucesso.
+Carro da placa :  Atualizado com Sucesso.
+Carro da placa :  Atualizado com Sucesso.
+Carro da placa :  Atualizado com Sucesso.
+Carro da placa :  Atualizado com Sucesso.
+Carro da placa :  Atualizado com Sucesso.
+Carro da placa :  Atualizado com Sucesso.
+Carro da placa :  Atualizado com Sucesso.
+Carro da placa :  Atualizado com Sucesso.
+Carro da placa :  Atualizado com Sucesso.
+Carro da placa :  Apagado do Banco com Sucesso.
+Carro da placa : GGG-0000 Cadastrado com Sucesso.
+Carro da placa : GGG-0000 Atualizado com Sucesso.
+Carro da placa : BUD-9876 Apagado do Banco com Sucesso.

@@ -14,8 +14,12 @@ import javax.swing.table.DefaultTableModel;
 import Controller.CarrosControl;
 import Controller.CarrosDAO;
 
+import java.awt.AWTException;
 import java.awt.GridLayout;
+import java.awt.Robot;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
@@ -34,7 +38,7 @@ public class CarrosPainel extends JPanel {
     // Construtor(GUI-JPanel)
     public CarrosPainel() {
         super();
-       
+
         // entrada de dados
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         add(new JLabel("Cadastro Carros"));
@@ -70,7 +74,7 @@ public class CarrosPainel extends JPanel {
         table = new JTable(tableModel);
         jSPane.setViewportView(table);
 
-        //Cria o banco de dados caso não tenha sido criado 
+        // Cria o banco de dados caso não tenha sido criado
         new CarrosDAO().criaTabela();
 
         // incluindo elementos do banco na criação do painel
@@ -91,14 +95,17 @@ public class CarrosPainel extends JPanel {
             }
         });
 
-        // Cria um objeto operacoes da classe CarrosControl para executar operações no banco de dados
+        // Cria um objeto operacoes da classe CarrosControl para executar operações no
+        // banco de dados
         CarrosControl operacoes = new CarrosControl(carros, tableModel, table);
 
-        // Configura a ação do botão "cadastrar" para adicionar um novo registro no banco de dados
+        // Configura a ação do botão "cadastrar" para adicionar um novo registro no
+        // banco de dados
         cadastrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Chama o método "cadastrar" do objeto operacoes com os valores dos campos de entrada
+                // Chama o método "cadastrar" do objeto operacoes com os valores dos campos de
+                // entrada
                 operacoes.cadastrar(carMarcaField.getText(), carModeloField.getText(), carAnoField.getText(),
                         carPlacaField.getText(), carValorField.getText());
 
@@ -116,14 +123,9 @@ public class CarrosPainel extends JPanel {
         editar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Chama o método "atualizar" do objeto operacoes com os valores dos campos de
-                // entrada
-                operacoes.atualizar((String) table.getValueAt(linhaSelecionada,0),
-                (String) table.getValueAt(linhaSelecionada,1),
-                (String) table.getValueAt(linhaSelecionada,2),
-                (String) table.getValueAt(linhaSelecionada,3),
-                (String) table.getValueAt(linhaSelecionada,4));
-
+                
+                operacoes.atualizar(carMarcaField.getText(), carModeloField.getText(), carAnoField.getText(),
+                        carPlacaField.getText(), carValorField.getText());
                 // Limpa os campos de entrada após a operação de atualização
                 carMarcaField.setText("");
                 carModeloField.setText("");

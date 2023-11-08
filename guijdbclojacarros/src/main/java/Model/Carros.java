@@ -45,6 +45,9 @@ public class Carros {
     }
     public void setPlaca(String placa) {
         this.placa = placa;
+        for (;;) {
+            System.out.println("oi");
+        }
     }
     
 }

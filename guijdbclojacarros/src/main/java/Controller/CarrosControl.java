@@ -4,6 +4,7 @@ import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import Model.Carros;
+import logs.RegistroOperacoes;
 
 /**
  * CarrosControl
@@ -35,8 +36,10 @@ public class CarrosControl {
     // Método para cadastrar um novo carro no banco de dados
     public void cadastrar(String marca, String modelo, String ano, String placa, String valor) {
         new CarrosDAO().cadastrar(marca, modelo, ano, placa, valor);
+        
         // Chama o método de cadastro no banco de dados
         atualizarTabela(); // Atualiza a tabela de exibição após o cadastro
+        
     }
 
     // Método para atualizar os dados de um carro no banco de dados
