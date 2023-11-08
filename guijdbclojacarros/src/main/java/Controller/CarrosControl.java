@@ -37,9 +37,17 @@ public class CarrosControl {
     }
 
     public void cadastrar(String marca, String modelo, String ano, String placa, String valor) {
-        Carros carro = new Carros(marca, modelo, ano, placa, valor);
-        carros.add(carro);
+        //criar métodos de controles
         new CarrosDAO().cadastrar(marca, modelo, ano, placa, valor);
+        atualizarTabela();
+    }
+
+    public void atualizar(String marca, String modelo, String ano, String placa, String valor){
+        new CarrosDAO().atualizar(marca, modelo, ano, placa, valor);
+        atualizarTabela();
+    }
+    public void apagar(String placa){
+        new CarrosDAO().apagar(placa);
         atualizarTabela();
     }
 
