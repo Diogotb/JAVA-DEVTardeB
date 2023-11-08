@@ -3,5 +3,6 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "c:\\Users\\Instrutor\\Downloads\\jfreechart-demo-1.5.2-jar-with-dependencies.jar"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

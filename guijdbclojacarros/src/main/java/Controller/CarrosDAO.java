@@ -101,8 +101,10 @@ public class CarrosDAO {
             stmt.setString(2, modelo);
             stmt.setString(3, ano);
             stmt.setString(4, valor);
-            //placa é chave primaria não pode ser alterda.
+            //placa é chave primaria não pode ser alterada.
             stmt.setString(5, placa);
+            stmt.executeUpdate();
+            
             System.out.println("Dados atualizados com sucesso");
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao atualizar dados no banco de dados.", e);
