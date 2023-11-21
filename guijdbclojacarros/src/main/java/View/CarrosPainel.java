@@ -73,6 +73,7 @@ public class CarrosPainel extends JPanel {
                 new String[] { "Marca", "Modelo", "Ano", "Placa", "Valor" });
         table = new JTable(tableModel);
         jSPane.setViewportView(table);
+        table.setCellSelectionEnabled(false);
 
         // Cria o banco de dados caso não tenha sido criado
         new CarrosDAO().criaTabela();
