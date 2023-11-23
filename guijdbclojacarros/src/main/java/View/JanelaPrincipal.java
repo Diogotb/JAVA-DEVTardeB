@@ -19,6 +19,10 @@ public class JanelaPrincipal extends JFrame{
 
         setBounds(100, 100, 600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //
+        jTPane.addChangeListener(e->{
+            tab3.atualizarComboBox();
+        });
 
     }
     //métodos para tornar a janela visível

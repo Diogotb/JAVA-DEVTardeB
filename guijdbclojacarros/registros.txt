@@ -41,3 +41,8 @@ Carro da placa : GGG-0000 Cadastrado com Sucesso.
 Carro da placa : GGG-0000 Atualizado com Sucesso.
 Carro da placa : BUD-9876 Apagado do Banco com Sucesso.
 Carro da placa : ASD-0987 Cadastrado com Sucesso.
+Carro da placa : ASD-0987 Atualizado com Sucesso.
+Carro da placa : a Cadastrado com Sucesso.
+Carro da placa : b Cadastrado com Sucesso.
+Carro da placa : c Cadastrado com Sucesso.
+Carro da placa : d Cadastrado com Sucesso.
