@@ -1,6 +1,8 @@
 package Controller;
 
 import java.util.List;
+
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import Model.Carros;
@@ -29,30 +31,46 @@ public class CarrosControl {
         carros = new CarrosDAO().listarTodos(); // Obtém os carros atualizados do banco de dados
         for (Carros carro : carros) {
             // Adiciona os dados de cada carro como uma nova linha na tabela Swing
-            tableModel.addRow(new Object[] { carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPlaca(), carro.getValor() });
+            tableModel.addRow(new Object[] { carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPlaca(),
+                    carro.getValor() });
         }
     }
 
     // Método para cadastrar um novo carro no banco de dados
     public void cadastrar(String marca, String modelo, String ano, String placa, String valor) {
+        validar();
         new CarrosDAO().cadastrar(marca, modelo, ano, placa, valor);
-        
-        // Chama o método de cadastro no banco de dados
-        atualizarTabela(); // Atualiza a tabela de exibição após o cadastro
-        
+
+            // Chama o método de cadastro no banco de dados
+            atualizarTabela(); // Atualiza a tabela de exibição após o cadastro
     }
 
     // Método para atualizar os dados de um carro no banco de dados
     public void atualizar(String marca, String modelo, String ano, String placa, String valor) {
-        new CarrosDAO().atualizar(marca, modelo, ano, placa, valor); 
+        validar();
+        new CarrosDAO().atualizar(marca, modelo, ano, placa, valor);
         // Chama o método de atualização no banco de dados
         atualizarTabela(); // Atualiza a tabela de exibição após a atualização
     }
 
     // Método para apagar um carro do banco de dados
     public void apagar(String placa) {
-        new CarrosDAO().apagar(placa); 
+        new CarrosDAO().apagar(placa);
         // Chama o método de exclusão no banco de dados
         atualizarTabela(); // Atualiza a tabela de exibição após a exclusão
+    }
+    public boolean validar(){
+
+        try {
+            if (Integer.parseInt(ano) < 1900 || Integer.parseInt(ano) >2024) {
+            JOptionPane.showMessageDialog(null, "Digite um valor correto p/ ano");
+        } else {
+            
+        }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Digite um valor valido para a plca");
+        }
+        return true;
     }
 }

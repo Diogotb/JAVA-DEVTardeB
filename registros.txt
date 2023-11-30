@@ -1,0 +1,5 @@
+Carro da placa : q Cadastrado com Sucesso.
+Carro da placa : e Apagado do Banco com Sucesso.
+Carro da placa : 1 Cadastrado com Sucesso.
+Carro da placa : 2 Cadastrado com Sucesso.
+Carro da placa : 3 Cadastrado com Sucesso.
